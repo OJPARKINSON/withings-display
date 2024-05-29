@@ -11,9 +11,6 @@ import (
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 	access_token := r.URL.Query().Get("access_token")
 
-	fmt.Println("access_token")
-	fmt.Println(access_token)
-
 	w.Write([]byte(access_token))
 	measurements := getMeasurements(r.Header.Get("access_token"))
 	fmt.Println(measurements)
