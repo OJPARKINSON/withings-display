@@ -24,3 +24,12 @@ go.work
 *.csr
 *.env
 *.DS_Store
+main
+
+.terraform
+app
+build
+bootstrap
+*.zip
+*.backup
+terraform.tfstate.backup
