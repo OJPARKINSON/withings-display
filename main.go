@@ -20,7 +20,7 @@ var gorillaLambda *gorillamux.GorillaMuxAdapter
 var r *mux.Router
 
 func init() {
-	godotenv.Load("../dev.env")
+	godotenv.Load("./dev.env")
 	r = mux.NewRouter()
 
 	r.HandleFunc("/login", routes.LoginHandler)
@@ -40,7 +40,7 @@ func main() {
 
 	if os.Getenv("ENV") == "development" {
 		fmt.Println("Server Started 🚀")
-		log.Fatal(http.ListenAndServeTLS("localhost:8080", "../cert.pem", "../key.pem", r))
+		log.Fatal(http.ListenAndServeTLS("localhost:8080", "./cert.pem", "./key.pem", r))
 	} else {
 		lambda.Start(Handler)
 	}

@@ -55,5 +55,5 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 
-	http.Redirect(w, r, "https://localhost:8080/welcome?access_token="+responseBody.Body.Access_token, http.StatusPermanentRedirect)
+	http.Redirect(w, r, "https://localhost:8080/welcome?access_token="+responseBody.Body.Access_token, http.StatusSeeOther)
 }

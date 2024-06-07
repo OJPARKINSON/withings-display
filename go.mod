@@ -25,4 +25,4 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 )
 
-// replace github.com/ojparkinson/withings-display/routes v0.0.0 => ./routes
+replace github.com/ojparkinson/withings-display/routes v0.0.0 => ./routes

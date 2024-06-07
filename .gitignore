@@ -33,3 +33,5 @@ bootstrap
 *.zip
 *.backup
 terraform.tfstate.backup
+.vercel
+*.png

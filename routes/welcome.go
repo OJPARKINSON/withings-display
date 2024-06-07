@@ -12,7 +12,7 @@ func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 	access_token := r.URL.Query().Get("access_token")
 
 	w.Write([]byte(access_token))
-	measurements := getMeasurements(r.Header.Get("access_token"))
+	measurements := getMeasurements(access_token)
 	fmt.Println(measurements)
 
 	pingDB()
@@ -48,6 +48,8 @@ func getMeasurements(accessToken string) []Measurements {
 
 	measurements := parseMeasurements(responseMeasurements)
 
+	fmt.Printf("%+v\n", measurements)
+
 	return measurements
 }
 
@@ -63,6 +65,8 @@ type Measurements struct {
 func parseMeasurements(oldslice responseMeasurements) []Measurements {
 
 	var measurements []Measurements
+
+	fmt.Println(oldslice)
 
 	for _, m := range oldslice.Body.Measuregrps {
 		date := m.Date
